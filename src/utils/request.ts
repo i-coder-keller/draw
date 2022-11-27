@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 import { AxiosResponseTypes } from '../utils/interface'
-const baseURL = process.env.NODE_ENV === "development" ? "//127.0.0.1:8080" : "//127.0.0.1:8080" 
+const baseURL = process.env.NODE_ENV === "development" ? "/api" : "/api" 
 const timeout = 300000
 
 const service = axios.create({
@@ -28,7 +28,7 @@ service.interceptors.response.use((response: AxiosResponse) => {
     Promise.reject(error)
 })
 
-function requestHandler<T,P extends AxiosRequestConfig>(params: P):Promise<AxiosResponseTypes<T>> {
+function requestHandler<T>(params: AxiosRequestConfig):Promise<AxiosResponseTypes<T>> {
     return service(params)
 }
 export default requestHandler
