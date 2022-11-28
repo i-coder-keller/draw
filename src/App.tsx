@@ -5,7 +5,13 @@ function App() {
       <BrowserRouter>
         <Routes>
           {
-            routers.map(r => <Route path={r.path} element={r.element} key={r.path} />)
+            routers.map(r => (
+              <Route path={r.path} element={r.element} key={r.path}>
+                {
+                  r.children && r.children.map(cr => <Route element={cr.element} path={cr.path} key={cr.path}></Route>)
+                }
+              </Route>
+            ))
           }
         </Routes>
       </BrowserRouter>

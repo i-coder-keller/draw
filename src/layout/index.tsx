@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
+import { Outlet } from 'react-router-dom'
 import HomeLottie from '../assets/lottie/home.json'
 import { useLottie } from "../hooks/hooks"
 function Layout() {
@@ -54,8 +55,9 @@ function Layout() {
                 </div>
                 
             </div>
-            <div className="w-full h-full max-w-[1440px] min-w-[1200px] m-auto flex">
-            </div>
+            <main className="w-full h-full max-w-[1440px] min-w-[1200px] m-auto flex p-2">
+                <Outlet />
+            </main>
         </div>
     )
 }
