@@ -28,7 +28,7 @@ function Layout() {
     }, [])
     return (
         <div className="w-full h-full bg-slate-50">
-            <div className="h-[60px] w-full bg-white border-y-0 border-t-0 border-b-2 border-slate-100 border-solid">
+            <div className="h-[60px] w-full bg-white border-y-0 border-t-0 border-b-2 border-slate-100 border-solid fixed">
                 <div className="h-full w-full max-w-[1440px] m-auto flex items-center justify-between px-2">
                     <div className="h-full w-fit flex items-center gap-x-2.5">
                         <div className="h-fit w-[50px]">
@@ -45,7 +45,7 @@ function Layout() {
                             <img src={require('@/assets/images/notification.png')} alt="notice" className="w-[20px] h-[20px] cursor-pointer rounded-full"/>
                         </div>
                         <div className="w-[30px] h-[30px] relative">
-                            <img src="http://drawcdn.liuyongzhi.cn/default-avatar.png" alt="avatar" className="w-[30px] h-[30px] cursor-pointer rounded-full active:border-2 active:border-solid active:border-slate-100 " onClick={openSetting} />
+                            <img src="http://drawcdn.liuyongzhi.cn/default-avatar.png" alt="avatar" className="w-[30px] h-[30px] cursor-pointer rounded-full active:border-2 active:border-solid active:border-slate-100 z-[2000]" onClick={openSetting} />
                             <div className={`w-[100px] h-fit absolute bg-white select-none rounded -translate-x-2/4 translate-y-6 shadow-lg ${setting ? 'block' : 'hidden'}`}>
                                 <div className="w-[100px] h-[30px] text-sm leading-[30px] text-center cursor-pointer border-b border-slate-400 border-solid">个人资料</div>
                                 <div className="w-[100px] h-[30px] text-sm leading-[30px] text-center cursor-pointer">退出登录</div>
@@ -55,7 +55,7 @@ function Layout() {
                 </div>
                 
             </div>
-            <main className="w-full h-full max-w-[1440px] min-w-[1200px] m-auto flex p-2">
+            <main className="w-full h-full] max-w-[1440px] min-w-[1200px] m-auto flex p-2 pt-[70px]">
                 <Outlet />
             </main>
         </div>
