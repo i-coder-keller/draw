@@ -8,7 +8,6 @@ function Layout() {
     useLottie(lottieTarget.current, HomeLottie)
     const closeSetting = () => {
         setSetting(false)
-        console.log('关闭')
     }
     const openSetting = (e: React.MouseEvent<HTMLImageElement>) => {
         setSetting(status => !status)
