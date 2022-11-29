@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
+import { useNavigate } from 'react-router-dom'
 import { Outlet } from 'react-router-dom'
 import HomeLottie from '../assets/lottie/home.json'
 import { useLottie } from "../hooks/hooks"
@@ -7,6 +8,7 @@ function Layout() {
     const [ noticeShow, setNoticeShow ] = useState<Boolean>(false)
     const [ setting, setSetting ] = useState<Boolean>(false)
     useLottie(lottieTarget.current, HomeLottie)
+    const navigate = useNavigate()
     const closeSetting = () => {
         setSetting(false)
     }
@@ -24,6 +26,12 @@ function Layout() {
         initEvents()
         return () => {
             disposeEvents()
+        }
+    }, [])
+    useEffect(() => {
+        const userInfo = localStorage.getItem('userInfo')
+        if (!userInfo) {
+            navigate('/login')
         }
     }, [])
     return (
@@ -55,7 +63,7 @@ function Layout() {
                 </div>
                 
             </div>
-            <main className="w-full h-full] max-w-[1440px] min-w-[1200px] m-auto flex p-2 pt-[70px]">
+            <main className="w-full h-full max-w-[1440px] min-w-[1200px] m-auto flex p-2 pt-[70px]">
                 <Outlet />
             </main>
         </div>
