@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { useLottie } from '../../hooks/hooks'
+import { useLottie } from '@/hooks/hooks'
 import animationData from '../../assets/lottie/login.json'
 import Login from './login'
 import Register from './register'
@@ -25,7 +25,6 @@ function Home() {
                     {
                         loginShow ? <Login /> : <Register />
                     }
-
                     <div className='w-[200px] h-[100px] m-auto ' ref={lottieTarget} />
                 </div>
             </div>
