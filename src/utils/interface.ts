@@ -22,3 +22,15 @@ export interface LoginRequestRootObject {
     account: string
     password: string
 }
+
+export interface SmsRequestRootObject {
+    email: string
+}
+
+export interface RegisterRequestObject {
+    account: string;
+    email: string;
+    password: string;
+    nickname: string;
+    code: string;
+}

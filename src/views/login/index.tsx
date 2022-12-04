@@ -23,7 +23,7 @@ function Home() {
                         <div className={`flex-1 h-[38px] cursor-pointer text-center text-sm leading-[22px] border-solid border-b-2 ${!loginShow ? 'text-rose-500 border-rose-500': 'text-violet-300 border-violet-300'}`} onClick={changeLoginOrResister}>注册</div>
                     </div>
                     {
-                        loginShow ? <Login /> : <Register />
+                        loginShow ? <Login /> : <Register changeLoginOrResister={changeLoginOrResister} />
                     }
                     <div className='w-[200px] h-[100px] m-auto ' ref={lottieTarget} />
                 </div>

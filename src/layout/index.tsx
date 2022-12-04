@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react"
 import { useNavigate } from 'react-router-dom'
 import { Outlet } from 'react-router-dom'
 import HomeLottie from '../assets/lottie/home.json'
-import { useLottie } from "../hooks/hooks"
+import { useLottie } from "@/hooks/hooks"
 function Layout() {
     const lottieTarget = useRef<HTMLDivElement>(null)
     const [ noticeShow, setNoticeShow ] = useState<Boolean>(false)
@@ -61,7 +61,7 @@ function Layout() {
                         </div>
                     </div>
                 </div>
-                
+
             </div>
             <main className="w-full h-full max-w-[1440px] min-w-[1200px] m-auto flex p-2 pt-[70px]">
                 <Outlet />
