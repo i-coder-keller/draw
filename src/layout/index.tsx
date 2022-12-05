@@ -3,10 +3,14 @@ import { useNavigate } from 'react-router-dom'
 import { Outlet } from 'react-router-dom'
 import HomeLottie from '../assets/lottie/home.json'
 import { useLottie } from "@/hooks/hooks"
+import { userInfo } from '@/store'
+import { useAtom } from 'jotai'
+
 function Layout() {
     const lottieTarget = useRef<HTMLDivElement>(null)
     const [ noticeShow, setNoticeShow ] = useState<Boolean>(false)
     const [ setting, setSetting ] = useState<Boolean>(false)
+    const [ user ] = useAtom(userInfo)
     useLottie(lottieTarget.current, HomeLottie)
     const navigate = useNavigate()
     const closeSetting = () => {
@@ -29,8 +33,8 @@ function Layout() {
         }
     }, [])
     useEffect(() => {
-        const userInfo = localStorage.getItem('userInfo')
-        if (!userInfo) {
+        const token = localStorage.getItem('token')
+        if (!token) {
             navigate('/login')
         }
     }, [])
@@ -53,7 +57,7 @@ function Layout() {
                             <img src={require('@/assets/images/notification.png')} alt="notice" className="w-[20px] h-[20px] cursor-pointer rounded-full"/>
                         </div>
                         <div className="w-[30px] h-[30px] relative">
-                            <img src="http://drawcdn.liuyongzhi.cn/default-avatar.png" alt="avatar" className="w-[30px] h-[30px] cursor-pointer rounded-full active:border-2 active:border-solid active:border-slate-100 z-[2000]" onClick={openSetting} />
+                            <img src={user.avatar} alt="avatar" className="w-[30px] h-[30px] cursor-pointer rounded-full active:border-2 active:border-solid active:border-slate-100 z-[2000]" onClick={openSetting} />
                             <div className={`w-[100px] h-fit absolute bg-white select-none rounded -translate-x-2/4 translate-y-6 shadow-lg ${setting ? 'block' : 'hidden'}`}>
                                 <div className="w-[100px] h-[30px] text-sm leading-[30px] text-center cursor-pointer border-b border-slate-400 border-solid">个人资料</div>
                                 <div className="w-[100px] h-[30px] text-sm leading-[30px] text-center cursor-pointer">退出登录</div>

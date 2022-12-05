@@ -10,7 +10,7 @@ const routers = [
         element: LazyLoad(lazy(() => import('@/layout/'))),
         children: [
             {
-                path: 'projects',
+                path: '/projects',
                 element: LazyLoad(lazy(() => import('@/views/projects/')))
             }
         ]

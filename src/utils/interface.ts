@@ -3,7 +3,7 @@ export interface AxiosResponseTypes<T> {
     data: T
     msg: string
 }
-interface UserInfo {
+export interface UserInfo {
     identity: string;
     account: string;
     nickname: string;
