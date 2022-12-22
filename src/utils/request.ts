@@ -13,7 +13,7 @@ service.interceptors.request.use((config : AxiosRequestConfig) => {
     config.headers = {
         ...config.headers,
         "content-type": "application/json",
-        token: ""
+        Authorization: `Bearer ${localStorage.getItem('token')}`
     }
     return config
 }, error => {

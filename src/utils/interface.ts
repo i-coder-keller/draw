@@ -34,3 +34,18 @@ export interface RegisterRequestObject {
     nickname: string;
     code: string;
 }
+
+export interface ProjectResponseRootObject {
+    projectName: string;
+    projectId: string;
+    projectInfo: string;
+    updateTime: number;
+    owner: boolean;
+    participants: null|ProjectParticipantsObject[];
+}
+
+export interface ProjectParticipantsObject {
+    identity: string;
+    avatar: string
+    name: string;
+}
